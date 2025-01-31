@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    /* margin: 0;
+    padding: 0;
+    box-sizing:border-box ;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 16px;
+    background-color: red; */
+
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;  /* Change to `nowrap` if you want all in one row */
+    flex-direction: row;
+    justify-content: space-around; /* Adjusts spacing */
+    gap: 20px;
+    padding: 20px;
+    /* background-color: red; */
+
+}
+.Card{
+
+
+max-width: 300px; /* Limits card size */
+min-width: 20%;
+flex: 1 1 250px;  /* Flex-grow, flex-shrink, and min-width */
+border: 2px solid black;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+overflow: hidden;
+background: white;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+text-align: center;
+height: 400px;
+
+}
+
+img{
+    width: 100%;
+    height: 50%;
+}
+
+.title{
+    /* border: 2px solid black; */
+    margin-bottom: 0;
+}
+
+.description{
+    padding: 3px;
+    margin: 5px;
+    margin-top: -20px;
+}
+
+.Card:hover{
+    transition: transform 0.5s ease;
+    transform: scale(1.05);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2); 
+}
