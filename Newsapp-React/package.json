@@ -1,5 +1,5 @@
 {
-  "name": "newsapp-react",
+  "name": "api-hooks",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "api-hooks": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import Card from './Card'
+import './Card.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [article, setArticle] = useState([])
+
+  useEffect(() => {
+    fetch('https://newsapi.org/v2/everything?q=bitcoin&apiKey=215beca6dcc1419a97b2b84cd0cc67af').then((response) => {
+      if (!response.ok) {
+        console.log('Failed to fetch API', response.statusText)
+      }
+      return response.json()
+    }).then((data) => {
+      console.log('Data Fetched')
+      setArticle(data.articles || [])
+    })
+
+
+
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='main'>
+        {
+          article.map((data, index) =>
+         {
+            if (data.urlToImage !== null && data.description !== null && data.title !== null) 
+            {
+              return (<Card key={index} title={data.title} description={data.description.length>100? (data.description.substring(0,100) + '....' ): data.description } urlToImage={data.urlToImage} />)
+            }
+
+          }
+          )
+        }
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
