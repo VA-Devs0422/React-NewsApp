@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Card from './Card'
 import './Card.css'
+import Navbar from './Navbar'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   return (
     <>
       <div className='main'>
+        <Navbar />
         {
           article.map((data, index) =>
          {
